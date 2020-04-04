@@ -1,0 +1,16 @@
+@mixin BaseButtonStyle ($type) {
+  @if $type == 'hollow' {
+    background-color: #fff;
+    color: $c-accent;
+    border: 2px solid $c-accent;
+  } @else {
+    background-color: $c-accent;
+    color: #fff;
+    border: none;
+  }
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba($color: #000000, $alpha: 0.12);
+  font-size: 2.2rem;
+  padding: 1.2rem 0;
+  cursor: pointer;
+}

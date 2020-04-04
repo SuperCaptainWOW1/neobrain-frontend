@@ -4,13 +4,18 @@ import VueRouter from 'vue-router';
 import Login from '../views/Login.vue';
 import Chat from '../views/Chat.vue';
 
+import store from '../store';
+
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '/chat',
     name: 'Chat',
     component: Chat,
+    meta: {
+      requiredAuth: true,
+    },
   },
   {
     path: '/login',
@@ -23,6 +28,18 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiredAuth) {
+    if (store.loggedIn) {
+      next();
+    } else {
+      router.push('/login');
+    }
+  } else {
+    next();
+  }
 });
 
 export default router;
