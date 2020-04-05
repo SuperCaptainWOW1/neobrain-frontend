@@ -10,7 +10,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/chat',
+    path: '/',
     name: 'Chat',
     component: Chat,
     meta: {
@@ -32,7 +32,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiredAuth) {
-    if (store.loggedIn) {
+    if (store.state.auth.loggedIn) {
       next();
     } else {
       router.push('/login');

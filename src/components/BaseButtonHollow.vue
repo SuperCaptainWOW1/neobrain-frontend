@@ -1,5 +1,5 @@
 <template>
-  <button>{{ content }}</button>
+  <button @click.prevent="click">{{ content }}</button>
 </template>
 
 <script>
@@ -8,6 +8,11 @@ export default {
     content: {
       type: String,
       default: 'Button',
+    },
+  },
+  methods: {
+    click() {
+      this.$emit('click');
     },
   },
 };

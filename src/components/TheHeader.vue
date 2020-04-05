@@ -14,7 +14,7 @@ export default {
   methods: {
     logOut() {
       this.$store.dispatch('logOut');
-      this.$router.push('/login');
+      this.$router.push('/login').catch((e) => console.log(e));
     },
   },
 };

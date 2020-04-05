@@ -20,8 +20,11 @@ export default {
   }),
   methods: {
     authenticate() {
-      this.$store.dispatch('authenticate');
-      this.$router.push('/chat');
+      this.$store.dispatch('authenticate', {
+        username: this.username,
+        password: this.password,
+      });
+      this.$router.push('/').catch((e) => console.log(e));
     },
   },
   components: {
