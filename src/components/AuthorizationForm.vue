@@ -1,8 +1,8 @@
 <template>
   <form class="authorization">
-    <h2>Authorization</h2>
+    <h2>Login</h2>
     <input type="text" v-model="username" placeholder="Username">
-    <input type="text" v-model="password" placeholder="Password">
+    <input type="password" v-model="password" placeholder="Password">
     <BaseButton @click="authenticate" style="margin-bottom: 1rem" content="Sign In" />
     <BaseButtonHollow content="Create Account" />
   </form>
@@ -50,15 +50,5 @@ h2 {
   text-align: center;
   font-size: 3.2rem;
   margin-bottom: 3rem;
-}
-
-input {
-  background-color: $c-bg-input;
-  color: $c-text-primary;
-  border: none;
-  padding: 1.5rem 1.2rem;
-  font-size: 1.6rem;
-  border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 </style>

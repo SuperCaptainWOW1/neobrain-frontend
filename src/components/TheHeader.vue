@@ -25,7 +25,7 @@ export default {
 @import '@/assets/scss/_variables';
 
 .header {
-  height: 9rem;
+  height: 8.2rem;
   text-align: center;
   padding: 1rem 0;
   position: relative;
@@ -42,14 +42,14 @@ export default {
   color: $c-text-primary;
   font-size: 2.4rem;
   position: absolute;
-  right: 10rem;
+  right: 8rem;
   top: 2.5rem;
   display: flex;
 }
 
 .user-info img {
   fill: $c-text-primary;
-  margin-left: 3rem;
+  margin-left: 4rem;
   cursor: pointer;
 }
 

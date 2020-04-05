@@ -19,6 +19,7 @@ export default {
   },
   actions: {
     logOut({ commit }) {
+      sessionStorage.clear();
       commit('SET_LOGGEDIN_STATUS', false);
     },
     authenticate({ commit }, { username, password }) {

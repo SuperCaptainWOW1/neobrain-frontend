@@ -6,6 +6,7 @@
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lexend+Deca&display=swap');
+@import '@/assets/scss/_variables';
 
 * {
   padding: 0;
@@ -15,6 +16,24 @@
 
 #app {
   font-family: 'Lato', 'Avenir', sans-serif;
+}
+
+input {
+  background-color: $c-bg-input;
+  color: $c-text-primary;
+  border: none;
+  padding: 1.5rem 1.2rem;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+input::placeholder {
+  color: $c-text-primary;
+}
+
+input:focus::placeholder {
+  opacity: .7;
 }
 
 @media (max-width: 576px) {
