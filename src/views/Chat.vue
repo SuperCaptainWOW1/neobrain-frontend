@@ -29,5 +29,6 @@ export default {
   margin: 0 2rem;
   margin-bottom: 2rem;
   border-radius: 20px;
+  // display: flex;
 }
 </style>
