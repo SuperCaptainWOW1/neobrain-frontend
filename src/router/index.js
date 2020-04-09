@@ -32,7 +32,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiredAuth) {
-    if (store.state.auth.loggedIn) {
+    if (store.state.loggedIn) {
       next();
     } else {
       router.push('/login');

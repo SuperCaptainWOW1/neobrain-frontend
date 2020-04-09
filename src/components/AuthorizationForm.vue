@@ -44,11 +44,13 @@ export default {
   border-radius: 1rem;
   padding: 2.5rem 3.5rem;
   min-width: 32rem;
-}
-
-h2 {
-  text-align: center;
-  font-size: 3.2rem;
-  margin-bottom: 3rem;
+  h2 {
+    text-align: center;
+    font-size: 3.2rem;
+    margin-bottom: 3rem;
+  }
+  input {
+    margin-bottom: 1.5rem;
+  }
 }
 </style>

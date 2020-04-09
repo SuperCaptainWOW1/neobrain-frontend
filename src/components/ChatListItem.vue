@@ -24,8 +24,8 @@ export default {
   },
   computed: {
     lastMessageShortened() {
-      if (this.lastMessage.length > 85) {
-        return `${this.lastMessage.slice(0, 85)}...`;
+      if (this.lastMessage.length > 50) {
+        return `${this.lastMessage.slice(0, 50)}...`;
       }
       return this.lastMessage;
     },

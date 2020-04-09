@@ -25,7 +25,6 @@ input {
   padding: 1.5rem 1.2rem;
   font-size: 1.6rem;
   border-radius: 0.5rem;
-  margin-bottom: 1.5rem;
 }
 
 input::placeholder {

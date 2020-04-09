@@ -3,19 +3,28 @@
     <TheHeader />
     <div class="chat-wrapper">
       <ChatList />
+      <component :is="computedComponent"/>
     </div>
   </div>
 </template>
 
 <script>
 import TheHeader from '../components/TheHeader.vue';
+import ChatWindow from '../components/ChatWindow.vue';
+import ChatStart from '../components/ChatStart.vue';
 import ChatList from '../components/ChatList.vue';
 
 export default {
   name: 'Home',
+  computed: {
+    computedComponent() {
+      return this.$store.getters.getActiveChatId ? ChatWindow : ChatStart;
+    },
+  },
   components: {
     TheHeader,
     ChatList,
+    ChatWindow,
   },
 };
 </script>
@@ -29,6 +38,8 @@ export default {
   margin: 0 2rem;
   margin-bottom: 2rem;
   border-radius: 20px;
-  // display: flex;
+  display: flex;
+  box-shadow: inset 0 0 4px rgba($color: #000000, $alpha: 0.04);
+  // padding: 3.5rem;
 }
 </style>

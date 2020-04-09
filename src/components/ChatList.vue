@@ -13,9 +13,9 @@
     <input type="text" v-model="searchChatQuery" placeholder="Search here">
 
     <div class="chats">
-      <ChatItem
+      <ChatListItem
         v-for="chat in chatsFiltered"
-        @click="chooseChat(chat.id)"
+        @click="setActiveChat(chat.id)"
         :friendName="chat.friendName"
         :lastMessage="chat.lastMessage"
         :ref='`chat-${chat.id}`'
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import ChatItem from './ChatItem.vue';
+import ChatListItem from './ChatListItem.vue';
 
 export default {
   name: 'ChatList',
@@ -34,7 +34,7 @@ export default {
     searchChatQuery: '',
   }),
   methods: {
-    chooseChat(id) {
+    setActiveChat(id) {
       const activeChatId = this.$store.getters.getActiveChatId;
 
       if (activeChatId) {
@@ -44,6 +44,13 @@ export default {
       this.$store.dispatch('chooseChat', id);
 
       this.$refs[`chat-${id}`][0].$el.classList.add('active');
+
+      this.showChatData(id);
+    },
+    showChatData() {
+      // const activeChat = this.$store.getters.find((c) => c.id === id);
+
+      // this.$store.
     },
   },
   computed: {
@@ -59,7 +66,7 @@ export default {
     },
   },
   components: {
-    ChatItem,
+    ChatListItem,
   },
 };
 </script>
@@ -73,44 +80,45 @@ export default {
   max-width: 330px;
   padding: 3.5rem;
   position: relative;
-}
+  border-right: 1px solid #E4E3E8;
+  .new-converstion-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: $c-text-primary;
+    font-size: 2rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.08);
+    max-width: 28.5rem;
+      img {
+        border-right: 1px solid #EFEFEF;
+        padding: 1.2rem 0;
+        padding-right: 1.5rem;
+      }
+      .content {
+        padding-left: 1.5rem;
+      }
+  }
+  h2 {
+    margin: 2rem 0;
+    font-weight: 700;
+    font-size: 4.2rem;
+    color: $c-text-primary;
+  }
+  input {
+    margin-bottom: 1.5rem;
+  }
+  .chats {
+    overflow: hidden;
+    max-height: calc(100vh - 36.3rem);
+    position: relative;
+  }
+  .chats:hover {
+    overflow-y: scroll;
+  }
 
-.new-converstion-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  color: $c-text-primary;
-  font-size: 2rem;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 1px 4px rgba($color: #000000, $alpha: 0.08);
-  max-width: 28.5rem;
-    img {
-      border-right: 1px solid #EFEFEF;
-      padding: 1.2rem 0;
-      padding-right: 1.5rem;
-    }
-    .content {
-      padding-left: 1.5rem;
-    }
-}
-
-h2 {
-  margin: 2rem 0;
-  font-weight: 700;
-  font-size: 4.2rem;
-  color: $c-text-primary;
-}
-
-.chats {
-  overflow: hidden;
-  max-height: calc(100vh - 36.3rem);
-  position: relative;
-}
-
-.chats:hover {
-  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar { width: 6px; height: 3px;}
